@@ -12,7 +12,9 @@ npm tailwindcss init -p
 @tailwindcss base
 @tailwindcss components
 @tailwindcss utilities
-
+ 
+# routing
+-sign-in and sign-up button
 
 # features
 -Login/Sign up
@@ -29,3 +31,4 @@ npm tailwindcss init -p
 -netflix GPT
     -search bar
     -Movie suggestions according to search bar
+

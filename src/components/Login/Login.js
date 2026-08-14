@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import Header from '../Header/Header.js';
+import validate from '../../utils/validate.js';
 
 const Login=()=>{
     const [toggle,setToggle]=useState(true);
+    const [username,setUsername]=useState("");
+    const [password,setPassword]=useState("");
+    const [email,setEmail]=useState("");
     function handleToggle(){
       setToggle(!toggle);
+    }
+    function handleSignUp(){
+      validate(username,password,email);
     }
     return(
         <div className="relative">
@@ -15,22 +22,27 @@ const Login=()=>{
                <h6 className="text-xl text-white mb-4">{toggle ? "Sign Up" : "Sign In"}</h6>
   <input
     type="text"
-    placeholder="Name"
+    placeholder="userName"
     className="p-2 m-2"
+    onChange={(e)=>{setUsername(e.target.value)}}
+
   />
  {
   toggle && (
-    <input type="text" placeholder="Enter email" className='p-2 m-2'/>
+    <input type="text" placeholder="Enter email" className='p-2 m-2' onChange={(e)=>{setEmail(e.target.value)}}
+/>
   )
  }
   <input
     type="password"
     placeholder="Password"
     className="p-2 m-2"
+    onChange={(e)=>{setPassword(e.target.value)}}
 
+    
   />
 
-  <button className="p-2 m-2 mt-8 bg-red-600 text-white">
+  <button className="p-2 m-2 mt-8 bg-red-600 text-white" onClick={()=>{handleSignUp()}}>
     {toggle ? "Sign Up" : "Sign In"}
   </button>
 
