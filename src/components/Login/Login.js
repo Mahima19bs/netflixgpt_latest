@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import Header from '../Header/Header.js';
 import validate from '../../utils/validate.js';
 
 const Login=()=>{
     const [toggle,setToggle]=useState(true);
     const [username,setUsername]=useState("");
-    const [password,setPassword]=useState("");
-    const [email,setEmail]=useState("");
+    // const [password,setPassword]=useState("");
+    // const [email,setEmail]=useState("");
     function handleToggle(){
       setToggle(!toggle);
     }
+    const email=useRef(null);
+    const password=useRef(null);
     function handleSignUp(){
       validate(username,password,email);
     }
@@ -18,9 +20,10 @@ const Login=()=>{
             <img src="/background.jpg" className="w-full h-screen object-cover"/>
             <div className='absolute inset-0 flex justify-center items-center'>
                 
-               <form className="bg-black/80 p-8 flex flex-col w-[500px] h-[500px]">
+               <form className="bg-black/80 p-8 flex flex-col w-[500px] h-[500px]" onSubmit={(e)=>{e.preventDefault()}}>  
                <h6 className="text-xl text-white mb-4">{toggle ? "Sign Up" : "Sign In"}</h6>
-  <input
+  <inputKavitha1972$$
+  
     type="text"
     placeholder="userName"
     className="p-2 m-2"
@@ -29,12 +32,13 @@ const Login=()=>{
   />
  {
   toggle && (
-    <input type="text" placeholder="Enter email" className='p-2 m-2' onChange={(e)=>{setEmail(e.target.value)}}
+    <input type="text" placeholder="Enter email"  ref={email} className='p-2 m-2' onChange={(e)=>{setEmail(e.target.value)}}
 />
   )
  }
   <input
     type="password"
+    ref={password}
     placeholder="Password"
     className="p-2 m-2"
     onChange={(e)=>{setPassword(e.target.value)}}
