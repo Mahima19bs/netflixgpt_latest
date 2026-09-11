@@ -17,7 +17,7 @@ const Header = () => {
       <h1 className="text-red-600 text-3xl font-bold">
         NETFLIX
       </h1>
-
+      <button className="text-white bg-red-500 h-30 w-80 rounded-md">GPT Search</button>
       <button
         className="bg-red-600 text-white px-4 py-2 rounded"
         onClick={handleSignout}

@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import Login from "../Login/Login.js";
 import Browse from "../Browse/Browse.js";
-import { addUser, removeUser } from "../../utils/userUtils.js";
+import { addUser, removeUser } from "../../utils/userSlice.js";
 
 const appRouter = createBrowserRouter([
   { path: "/", element: <Login /> },
@@ -20,10 +20,14 @@ const Body = () => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid, email, displayName }));
-        window.location.href="/browse";
+        if (window.location.pathname !== "/browse") {
+          window.location.replace("/browse");
+        }
       } else {
         dispatch(removeUser());
-        window.location.href="/";
+        if (window.location.pathname !== "/") {
+          window.location.replace("/");
+        }
       }
     });
 

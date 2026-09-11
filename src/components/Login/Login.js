@@ -15,7 +15,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-
   const handleToggle = () => {
     setToggle(!toggle);
     setErrors({});
