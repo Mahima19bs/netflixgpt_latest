@@ -7,3 +7,4 @@ export const API_OPTIONS = {
   },
 };
 export const IMG_CON_URL="https://image.tmdb.org/t/p/w200";
+export const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
